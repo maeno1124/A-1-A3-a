@@ -11,6 +11,7 @@ GitHub URL https://github.com/maeno1124/A-1-A3-a.git
 webアプリで制作していく。
 ifconfigにて自分のIPを入手して、サーバーを開くことで誰でも活用可能(en0のIPを利用)
 VScodeの拡張機能「Live Server」をインストール
+HTMLファイルを右クリックして[Open with Live Server]をクリック
 
 VScodeではない場合Python3を活用する
 1,Pythonをインストール
@@ -20,6 +21,13 @@ VScodeではない場合Python3を活用する
 
 他の端末からサーバにアクセスする方法
 1,サーバが接続しているWi-Fiと同じものに接続させる
-2,　ブラウザで「http://[STEP 1で調べたIPアドレス]:[STEP 2で表示されたポート番号]」を検索
+2,　ブラウザで「http://192.168.50.190:8000/cybersimulator」を検索
 
 ※サーバ側はファイアウォール設定に注意
+
+
+プログラムについて
+利用するモジュール
+Node.js: サーバーサイドでJavaScriptを実行するための環境
+Express: Node.jsのWebアプリケーションフレームワーク
+EJS (Embedded JavaScript Templates): HTMLの中にJavaScriptのコードを埋め込むことができるテンプレートエンジン

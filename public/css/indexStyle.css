@@ -1,0 +1,201 @@
+/* --- 1. 全体・共通の設定 --- */
+
+/* :root は文書全体で使える変数を定義する場所です */
+:root {
+  --primary-color: #FFD600; /* Yellow: メインカラー（黄色）を変数として定義 */
+  --danger-color: #ff0000;  /* Red:    アクセントカラー（赤色）を変数として定義 */
+  --text-color: #222;       /* Dark Gray: 基本の文字色（濃い灰色）を変数として定義 */
+  --light-text-color: #fff;  /* White: 明るい背景で使う文字色（白）を変数として定義 */
+}
+
+/* bodyとhtmlタグの基本スタイルを設定 */
+body, html {
+  margin: 0; /* ブラウザ標準の余白をなくす */
+  padding: 0; /* ブラウザ標準の内側余白をなくす */
+  width: 100%; /* 横幅を画面サイズいっぱいに設定 */
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; /* Webサイト全体のフォントを指定 */
+  overflow-x: hidden; /* 横方向にはみ出したコンテンツを隠し、横スクロールバーが出ないようにする */
+}
+
+/* --- 2. スマホでの表示（基本のスタイル） --- */
+
+/* headerクラスのスタイル */
+.header {
+  position: absolute; /* 親要素を基準に絶対位置で配置 */
+  top: 16px; /* 上から16pxの位置に配置 */
+  left: 16px; /* 左から16pxの位置に配置 */
+  z-index: 10; /* 要素の重なり順を10に設定（他の要素より手前に表示） */
+}
+
+/* header-logoクラス（ロゴ画像）のスタイル */
+.header-logo {
+  width: 10%; /* ロゴの横幅を100pxに設定 */
+}
+
+/* kvクラス（キービジュアル全体）のスタイル */
+.kv {
+  width: 100%; /* 横幅を画面いっぱいに設定 */
+  height: auto; /* 高さは内容に応じて自動調整 */
+  min-height: 150px; /* 高さが最低でも450pxになるように設定 */
+  background: repeating-linear-gradient(135deg, #000 0 10px, var(--primary-color) 10px 20px); /* 135度の角度で黒と黄色の斜線ストライプ背景を繰り返し表示 */
+  box-sizing: border-box; /* paddingを含めて全体のサイズを計算するようにする */
+  display: flex; /* Flexboxレイアウトを適用 */
+  justify-content: center; /* Flexboxの子要素を水平方向の中央に配置 */
+  align-items: center; /* Flexboxの子要素を垂直方向の中央に配置 */
+  overflow: hidden; /* この要素からはみ出した子要素を隠す */
+}
+
+/* main-titleクラス（中央の赤い箱）のスタイル */
+.main-title {
+  background-color: var(--danger-color); /* 背景色を赤に設定 */
+  color: var(--light-text-color); /* 文字色を白に設定（テキストが入った時用）*/
+  text-align: center; /* テキストを中央揃えに（テキストが入った時用）*/
+  padding: 60px 10px; /* 上下60px・左右20pxの内側余白で高さを確保 */
+  border-radius: 12px; /* 角を半径12pxで丸める */
+  z-index: 5; /* 要素の重なり順を5に設定（画像より手前） */
+  position: relative; /* z-indexを有効にするために設定 */
+  width: 95%; /* 横幅を親要素（kv）の95%に設定 */
+  box-sizing: border-box; /* paddingを含めて幅を計算する */
+  /* height: 95%; を削除 */
+}
+
+/* 装飾用の画像（共通スタイル） */
+.img-position-1, .img-position-2, .img-position-3, .img-position-4 {
+  display: block; /* ブロック要素として表示 */
+  position: absolute; /* 親要素（kv_inner）を基準に絶対位置で配置 */
+  opacity: 0; /* 初期状態では透明にして見えなくする（アニメーションで表示） */
+  max-width: 100%; /* 画像の最大幅を親要素の100%に制限 */
+  height: auto; /* 高さを横幅に合わせて自動調整 */
+}
+
+/* スマホ用の各画像の位置、サイズ、アニメーションを指定 */
+.img-position-1 { left: 5%; top: 30%; width: 30%; animation: fadeInFromLeft 1.5s ease-out 0.5s forwards; }
+.img-position-2 { right: 5%; top: 35%; width: 22%; animation: bounceInLeft 1.5s cubic-bezier(.68,-0.55,.27,1.55) 1s forwards; }
+.img-position-3 { right: 20%; top: 8%; width: 25%; animation: bounceInRight 1.8s cubic-bezier(.68,-0.55,.27,1.55) 1.5s forwards; }
+.img-position-4 { left: 65%;  top: 50%; width: 23%; animation: fadeInOnly 1s ease-out 3s forwards; }
+
+/* intro-contentクラス（紹介文のセクション）のスタイル */
+.intro-content {
+  padding: 20px; /* 上下左右に20pxの内側余白 */
+  text-align: center; /* テキストを中央揃えに */
+}
+
+/* intro-txt-labelクラス（「〇〇がもたらす」の部分）のスタイル */
+.intro-txt-label {
+  font-size: 1.8rem; /* 文字サイズを基本の1.8倍に */
+  margin-top: 40px; /* 上側に40pxの外側余白 */
+  font-weight: normal; /* 文字の太さを標準に */
+  opacity: 0;
+  animation: fadeInOnly 1s ease-out 4s forwards;
+}
+
+/* intro-sub-titleクラス（「未来の体験」の部分）のスタイル */
+.intro-sub-title {
+  font-size: 1.2rem; /* 文字サイズを基本の1.2倍に */
+  margin-top: 10px; /* 上側に10pxの外側余白 */
+  color: #555; /* 文字色を少し薄い黒に */
+  opacity: 0;
+  animation: fadeInOnly 1s ease-out 5s forwards;
+
+}
+
+/* text-dangerクラス（赤くしたい文字）のスタイル */
+.text-danger {
+  color: var(--danger-color); /* 文字色を赤に */
+}
+
+/* big-buttonクラス（大きなボタン）のスタイル */
+.big-button {
+  opacity: 0;
+  animation: fadeInOnly 1s ease-out 6s forwards;
+  display: inline-block; /* インラインブロック要素として表示（幅や高さを指定できる） */
+  text-decoration: none; /* テキストの下線を消す */
+  margin-top: 50px; /* 上側に50pxの外側余白 */
+  font-size: 1.2rem; /* 文字サイズを基本の1.2倍に */
+  font-weight: bold; /* 文字を太字に */
+  padding: 15px 40px; /* 上下15px, 左右40pxの内側余白 */
+  border-radius: 9999px; /* 角を非常に大きく丸めて楕円形にする */
+  background: var(--primary-color); /* 背景色を黄色に */
+  color: var(--text-color); /* 文字色を濃い灰色に */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15); /* 影を付けて立体感を出す */
+  transition: transform 0.2s; /* transformプロパティの変化を0.2秒でアニメーション */
+  
+}
+
+/* ボタンにマウスカーソルが乗った時のスタイル */
+.big-button:hover {
+  transform: translateY(-2px); /* Y軸方向に-2px移動（少し浮き上がるように見せる） */
+}
+
+/* --- 3. PCでの表示（画面幅が768px以上の場合） --- */
+
+/* @media は画面サイズに応じてスタイルを切り替えるためのルール */
+@media (min-width: 768px) {
+  
+  /* ロゴの横幅を120pxに上書き */
+  .header-logo {
+    width: 120px;
+  }
+  
+  /* PC用のメインタイトルのスタイルを上書き */
+  .main-title {
+    /* 画面幅に応じて、paddingとfont-sizeを滑らかに変化させる */
+    padding: clamp(200px, 10vw, 100px) clamp(20px, 8vw, 60px);
+    font-size: clamp(1.8rem, 5vw, 2.25rem);
+  }
+
+  /* PCではスマホ用の改行（sp-only）を非表示にする */
+  .sp-only {
+    display: none;
+  }
+
+  /* PC用の画像の位置とサイズを上書き（アニメーションはスマホの設定を継承） */
+  .img-position-1 { left: 10%; top: 15%; width: 35%; }
+  .img-position-2 { right: 8%; top: 35%; width: 20%; }
+  .img-position-3 { right: 25%; top: 12%; width: 28%; }
+  .img-position-4 { left: 60%; top: 55%; width: 18%; }
+
+  /* PC用のintro-txt-labelの文字サイズを上書き */
+  .intro-txt-label {
+    font-size: 2.5rem;
+  }
+
+  /* PC用のintro-sub-titleの文字サイズを上書き */
+  .intro-sub-title {
+    font-size: 2rem;
+  }
+
+  /* PC用のボタンのスタイルを上書き */
+  .big-button {
+    font-size: 1.8rem; /* 文字サイズを大きく */
+    padding: 20px 60px; /* 内側余白を大きく */
+  }
+}
+
+/* --- 4. アニメーションの定義 --- */
+
+/* @keyframes はアニメーションの動きを定義するルール */
+
+/* fadeInFromLeft: 左からフェードインするアニメーション */
+@keyframes fadeInFromLeft {
+  from { opacity: 0; transform: translateX(-50px); } /* 開始時: 透明で左に50pxずれた状態 */
+  to { opacity: 1; transform: translateX(0); } /* 終了時: 不透明で元の位置に戻る */
+}
+
+/* bounceInLeft: 左からバウンドしながら入ってくるアニメーション */
+@keyframes bounceInLeft {
+  from { opacity: 0; transform: translateX(-100px) scale(0.8); } /* 開始時: 透明で左に100pxずれ、少し小さい状態 */
+  to { opacity: 1; transform: translateX(0) scale(1); } /* 終了時: 不透明で元の位置・サイズに戻る */
+}
+
+/* bounceInRight: 右からバウンドしながら入ってくるアニメーション */
+@keyframes bounceInRight {
+  from { opacity: 0; transform: translateX(100px) scale(0.8); } /* 開始時: 透明で右に100pxずれ、少し小さい状態 */
+  to { opacity: 1; transform: translateX(0) scale(1); } /* 終了時: 不透明で元の位置・サイズに戻る */
+}
+
+/* fadeInOnly: その場でフェードインするだけのアニメーション */
+@keyframes fadeInOnly {
+  from { opacity: 0; } /* 開始時: 透明 */
+  to { opacity: 1; } /* 終了時: 不透明 */
+}

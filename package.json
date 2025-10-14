@@ -1,0 +1,24 @@
+{
+  "name": "pe-a1-a3-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maeno1124/A-1-A3-a.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maeno1124/A-1-A3-a/issues"
+  },
+  "homepage": "https://github.com/maeno1124/A-1-A3-a#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
