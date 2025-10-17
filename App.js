@@ -16,12 +16,15 @@ app.use(express.static('public'));
 // EJSをビューエンジンとして設定
 app.set('view engine', 'ejs');
 
-// 分割したルーターを読み込む
-const indexRoutes = require('./routes/indexRoutes');
+// --- ルーティング設定 ---
 
-// ルーティングの設定
-// URLパスを '/cybersimulator' に変更
-app.use('/cybersimulator', indexRoutes);
+// ルート用ルーターをインポート
+const indexRoutes = require('./routes/indexRoutes.js'); 
+
+// URLのパスに応じて、使用するルーターを振り分ける
+app.use('/cybersimulator', indexRoutes); // '/cybersimulator'で始まるリクエストは全てindexRoutesに送る
+
+// --- サーバー起動処理 ---
 
 // ネットワーク上のIPアドレスを取得する関数
 function getNetworkIp() {

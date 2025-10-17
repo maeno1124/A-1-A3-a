@@ -1,5 +1,16 @@
 GitHub URL https://github.com/maeno1124/A-1-A3-a.git
 
+GitHubアップロード方法
+cd "フォルダのパス"
+git init
+git add .
+git commit -m "コメント"
+git remote add origin https://github.com/your-username/your-repository.git
+git push -u origin main
+
+# "index.html"というファイルだけを追加
+git add index.html
+
 課題
 『体験型学習を通じた被害防止のための教育活動』
 

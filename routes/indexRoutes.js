@@ -1,24 +1,24 @@
-// 必要なモジュールを読み込む
+/*
+  indexRoutes.js
+*/
+
 const express = require('express');
 const router = express.Router();
+const appRoutes = require('./appRoutes.js'); // ★★★ appRoutesをここで読み込む
 
-// ルートURL ('/') へのGETリクエストに対する処理を定義
+// '/app' で始まるパスを appRoutes に引き継ぐ
+router.use('/app', appRoutes); // ★★★ この行を追加
+
+// ルートパス '/' へのGETリクエスト (URLは /cybersimulator となる)
 router.get('/', (req, res) => {
-  // EJSテンプレートに渡すためのデータオブジェクト
-  const data = {
-    title: '岩手県警察-犯罪対策教育用サイト',
-    message: '制作中',
-    navLinks: [
-      { href: '/', label: 'ホーム' },
-      { href: '/about', label: '概要' },
-      { href: '/services', label: 'サービス' },
-      { href: '/contact', label: 'お問い合わせ' }
-    ]
-  };
-
-  // 'views/index.ejs' ファイルを描画し、データを渡す
-  res.render('index', data);
+  // views/index.ejs を描画します
+  res.render('index');
 });
 
-// このルーターを他のファイルで読み込めるようにエクスポートする
+// '/experience' パスへのGETリクエスト (URLは /cybersimulator/experience となる)
+router.get('/app', (req, res) => {
+  // views/experience.ejs を描画します
+  res.render('app');
+});
+
 module.exports = router;
