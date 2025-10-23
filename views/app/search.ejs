@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>岩手県警察 サイバー犯罪対策体験</title>
     <link rel="icon" href="/photos/cs.jpg" type="image/png">
+    <!-- スマホのガワのスタイル -->
     <link rel="stylesheet" href="/css/Experience.css">
-    <script src = "/routes/appRoutes.js"></script>
+    <!-- ▼ 検索アプリの中身のスタイル（追加） -->
+    <link rel="stylesheet" href="/css/searchStyle.css"> 
+    <!-- ▼ アイコンフォント（追加） -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -20,10 +24,70 @@
         <div class="kframe">
             <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
             <div class="kframeinner">
-            <!--背景画面を表示-->
-            <div class = "">
-                <!--アプリの内容を作成-->
+            <!--▼▼▼ 検索アプリのUIを挿入 ▼▼▼-->
+            <div class="search-screen">
+                <header class="search-header">
+                    <!-- Googleロゴ -->
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="search-logo">
+                </header>
+                
+                <!-- 検索バー -->
+                <div class="search-bar-container">
+                    <i class="material-icons search-icon">search</i>
+                    <input type="text" class="search-input" placeholder="検索または URL を入力">
+                    <i class="material-icons mic-icon">mic</i>
+                </div>
+            
+                <!-- Suggestions / Discover Feed -->
+                <main class="search-content">
+                    <div class="content-title">Discover</div>
+                    
+                    <div class="discover-item">
+                        <div class="discover-text">
+                            <h3>サイバー犯罪の最新動向</h3>
+                            <p>岩手県警、新たな手口に注意喚起 - iwate-np.co.jp</p>
+                        </div>
+                        <img src="https://placehold.co/100x75/e0e0e0/757575?text=記事" alt="記事のサムネイル" class="discover-thumbnail">
+                    </div>
+                    
+                    <div class="discover-item">
+                        <div class="discover-text">
+                            <h3>フィッシング詐欺の見分け方</h3>
+                            <p>警察庁が公開したチェックリスト - npa.go.jp</p>
+                        </div>
+                        <img src="https://placehold.co/100x75/e0e0e0/757575?text=記事" alt="記事のサムネイル" class="discover-thumbnail">
+                    </div>
+            
+                    <div class="discover-item">
+                        <div class="discover-text">
+                            <h3>安全なパスワード管理術</h3>
+                            <p>専門家が推奨する３つの方法 - cyber-security.com</p>
+                        </div>
+                        <img src="https://placehold.co/100x75/e0e0e0/757575?text=記事" alt="記事のサムネイル" class="discover-thumbnail">
+                    </div>
+                </main>
+            
+                <!-- Footer Tabs -->
+                <footer class="search-footer">
+                    <div class="footer-tab active">
+                        <i class="material-icons">search</i>
+                        <span>検索</span>
+                    </div>
+                    <div class="footer-tab">
+                        <i class="material-icons">article</i>
+                        <span>Discover</span>
+                    </div>
+                    <div class="footer-tab">
+                        <i class="material-icons">collections</i>
+                        <span>検索コレクション</span>
+                    </div>
+                    <div class="footer-tab">
+                        <i class="material-icons">more_horiz</i>
+                        <span>その他</span>
+                    </div>
+                </footer>
             </div>
+            <!--▲▲▲ 検索アプリのUIここまで ▲▲▲-->
             </div>
         </div>    
     </div>

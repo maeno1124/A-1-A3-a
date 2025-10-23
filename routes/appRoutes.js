@@ -12,7 +12,7 @@ router.get('/phone', (req, res) => {
 
 // This will handle '/app/calendar'
 router.get('/calendar', (req, res) => {
-  res.render('app/calendar');
+  res.render('/app/calendar');
 });
 
 // This will handle '/app/mail'

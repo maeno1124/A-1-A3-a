@@ -6,7 +6,9 @@
     <title>岩手県警察 サイバー犯罪対策体験</title>
     <link rel="icon" href="/photos/cs.jpg" type="image/png">
     <link rel="stylesheet" href="/css/Experience.css">
-    <script src = "/routes/appRoutes.js"></script>
+    <!-- ▼▼▼ 参照するCSS ▼▼▼ -->
+    <link rel="stylesheet" href="/css/messageStyle.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -20,13 +22,120 @@
         <div class="kframe">
             <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
             <div class="kframeinner">
-            <!--背景画面を表示-->
-            <div class = "">
-                <!--アプリの内容を作成-->
-            </div>
+                <!-- ▼▼▼ アプリの内容をここから作成 ▼▼▼ -->
+                <div class="message-screen">
+                    
+                    <!-- ヘッダーと検索バー -->
+                    <header class="message-header">
+                        <div class="header-top-row">
+                            <h1>メッセージ</h1>
+                            <i class="material-icons">edit_square</i>
+                        </div>
+                        <div class="search-bar-container">
+                            <i class="material-icons">search</i>
+                            <input type="text" class="search-input" placeholder="検索">
+                        </div>
+                    </header>
+                    
+                    <!-- チャットリスト -->
+                    <main class="chat-list-container">
+
+                        <!-- 不審なメッセージの例1 -->
+                        <div class="chat-item">
+                            <div class="chat-avatar">
+                                <!-- プレースホルダー画像 -->
+                                <img src="https://placehold.co/100x100/CCCCCC/FFFFFF?text=?" alt="不明な送信者 アバター" onerror="this.src='https://placehold.co/100x100/CCCCCC/FFFFFF?text=?'">
+                            </div>
+                            <div class="chat-preview">
+                                <div class="chat-preview-header">
+                                    <span class="chat-name">+81 90-XXXX-XXXX</span>
+                                    <span class="chat-time">09:15</span>
+                                </div>
+                                <div class="chat-message">
+                                    荷物のお届けにあがりましたが不在の為...
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- 友達1 -->
+                        <div class="chat-item">
+                            <div class="chat-avatar">
+                                <!-- プレースホルダー画像 -->
+                                <img src="https://placehold.co/100x100/A0C9E8/FFFFFF?text=友&font=noto_sans_jp" alt="友達 アバター" onerror="this.src='https://placehold.co/100x100/A0C9E8/FFFFFF?text=友'">
+                            </div>
+                            <div class="chat-preview">
+                                <div class="chat-preview-header">
+                                    <span class="chat-name">友達</span>
+                                    <span class="chat-time">10:30</span>
+                                </div>
+                                <div class="chat-message">
+                                    ありがとう！助かる！
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- 友達2 -->
+                        <div class="chat-item">
+                            <div class="chat-avatar">
+                                <!-- プレースホルダー画像 -->
+                                <img src="https://placehold.co/100x100/A0C9E8/FFFFFF?text=友&font=noto_sans_jp" alt="友達 アバター" onerror="this.src='https://placehold.co/100x100/A0C9E8/FFFFFF?text=友'">
+                            </div>
+                            <div class="chat-preview">
+                                <div class="chat-preview-header">
+                                    <span class="chat-name">友達</span>
+                                    <span class="chat-time">12:07</span>
+                                </div>
+                                <div class="chat-message">
+                                    明日の授業ってなに？
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 不審なメッセージの例2 -->
+                        <div class="chat-item">
+                            <div class="chat-avatar">
+                                <!-- プレースホルダー画像 -->
+                                <img src="https://placehold.co/100x100/CCCCCC/FFFFFF?text=?" alt="不明な送信者 アバター" onerror="this.src='https://placehold.co/100x100/CCCCCC/FFFFFF?text=?'">
+                            </div>
+                            <div class="chat-preview">
+                                <div class="chat-preview-header">
+                                    <span class="chat-name">〇〇運送</span>
+                                    <span class="chat-time">09:15</span>
+                                </div>
+                                <div class="chat-message">
+                                    明日の17時にお届け予定て゛す。ご不在の場合は再配達の手続きをお願いします
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- お母さん -->
+                        <div class="chat-item">
+                            <div class="chat-avatar">
+                                <!-- プレースホルダー画像 -->
+                                <img src="https://placehold.co/100x100/E8AAAD/FFFFFF?text=母&font=noto_sans_jp" alt="お母さん アバター" onerror="this.src='https://placehold.co/100x100/E8AAAD/FFFFFF?text=母'">
+                            </div>
+                            <div class="chat-preview">
+                                <div class="chat-preview-header">
+                                    <span class="chat-name">お母さん</span>
+                                    <span class="chat-time">昨日</span>
+                                </div>
+                                <div class="chat-message">
+                                    わかりました。
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        
+                    </main>
+                    
+                </div>
+                <!-- ▲▲▲ アプリの内容はここまで ▲▲▲ -->
             </div>
         </div>    
     </div>
 
 </body>
 </html>
+

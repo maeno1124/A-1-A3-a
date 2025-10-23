@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>岩手県警察 サイバー犯罪対策体験</title>
     <link rel="icon" href="/photos/cs.jpg" type="image/png">
+    <!-- スマホのガワのスタイル -->
     <link rel="stylesheet" href="/css/Experience.css">
-    <script src = "/routes/appRoutes.js"></script>
+    <!-- ▼ カレンダーアプリのスタイル（差し替えたCSS） -->
+    <link rel="stylesheet" href="/css/calendarStyle.css"> 
+    <!-- ▼ アイコンフォント（追加） -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -20,10 +24,121 @@
         <div class="kframe">
             <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
             <div class="kframeinner">
-            <!--背景画面を表示-->
-            <div class = "">
-                <!--アプリの内容を作成-->
-            </div>
+                <!--▼▼▼ カレンダーUIは kframeinner の中に入れます ▼▼▼-->
+                <div class="calendar-screen">
+                    <div class="calendar-header">
+                        <button id="prev-month" class="nav-btn">&lt;</button>
+                        <h2 id="month-year"></h2>
+                        <button id="next-month" class="nav-btn">&gt;</button>
+                    </div>
+
+                    <div class="calendar-grid-container">
+                        <table class="calendar-grid">
+                            <thead>
+                                <tr>
+                                    <th>日</th>
+                                    <th>月</th>
+                                    <th>火</th>
+                                    <th>水</th>
+                                    <th>木</th>
+                                    <th>金</th>
+                                    <th>土</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calendar-body">
+                                <!-- JavaScriptで動的に生成されます -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- フッタータブを追加 -->
+                    <footer class="calendar-footer">
+                        <div class="footer-tab">
+                            <i class="material-icons">today</i>
+                            <span>今日</span>
+                        </div>
+                        <div class="footer-tab active">
+                            <i class="material-icons">calendar_month</i>
+                            <span>カレンダー</span>
+                        </div>
+                        <div class="footer-tab">
+                            <i class="material-icons">mail_outline</i>
+                            <span>受信トレイ</span>
+                        </div>
+                    </footer>
+                </div>
+                
+                <!-- JavaScriptも kframeinner の最後に移動 -->
+                <script>
+                // --- CALENDAR JAVASCRIPT ---
+                document.addEventListener('DOMContentLoaded', function() {
+                    const monthYearElement = document.getElementById('month-year');
+                    const calendarBody = document.getElementById('calendar-body');
+                    const prevMonthBtn = document.getElementById('prev-month');
+                    const nextMonthBtn = document.getElementById('next-month');
+            
+                    let currentDate = new Date();
+            
+                    function renderCalendar() {
+                        const year = currentDate.getFullYear();
+                        const month = currentDate.getMonth(); // 0-11 for Jan-Dec
+            
+                        monthYearElement.textContent = `${year}年 ${month + 1}月`;
+                        calendarBody.innerHTML = ''; // Clear previous calendar cells
+            
+                        const firstDayOfMonth = new Date(year, month, 1).getDay(); // 0=Sun, 1=Mon...
+                        const daysInMonth = new Date(year, month + 1, 0).getDate();
+                        
+                        let date = 1;
+                        // Create rows for the weeks
+                        for (let i = 0; i < 6; i++) {
+                            const row = document.createElement('tr');
+            
+                            // Create cells for the days
+                            for (let j = 0; j < 7; j++) {
+                                const cell = document.createElement('td');
+                                if (i === 0 && j < firstDayOfMonth) {
+                                    // Empty cells before the 1st day of the month
+                                    cell.classList.add('other-month');
+                                } else if (date > daysInMonth) {
+                                    // Empty cells after the last day of the month
+                                    cell.classList.add('other-month');
+                                } else {
+                                    // Fill cell with the date
+                                    cell.textContent = date;
+                                    const today = new Date();
+                                    // Check if this cell is today's date
+                                    if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                                        cell.classList.add('today'); // Highlight today
+                                    }
+                                    date++;
+                                }
+                                row.appendChild(cell);
+                            }
+                            calendarBody.appendChild(row);
+                            if (date > daysInMonth) {
+                                break; // Exit loop if all days are rendered
+                            }
+                        }
+                    }
+            
+                    // Event listener for the 'previous month' button
+                    prevMonthBtn.addEventListener('click', () => {
+                        currentDate.setMonth(currentDate.getMonth() - 1);
+                        renderCalendar();
+                    });
+            
+                    // Event listener for the 'next month' button
+                    nextMonthBtn.addEventListener('click', () => {
+                        currentDate.setMonth(currentDate.getMonth() + 1);
+                        renderCalendar();
+                    });
+            
+                    // Initial call to draw the calendar on page load
+                    renderCalendar();
+                });
+                </script>
+                <!--▲▲▲ カレンダーUIここまで ▲▲▲-->
             </div>
         </div>    
     </div>

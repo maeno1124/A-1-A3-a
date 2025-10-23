@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>岩手県警察 サイバー犯罪対策体験</title>
     <link rel="icon" href="/photos/cs.jpg" type="image/png">
-    <link rel="stylesheet" href="/css/Experience.css">
-    <script src = "/routes/appRoutes.js"></script>
+    <link rel="stylesheet" href="/css/settingStyle.css">
+    <link rel="stylesheet" href="/css/Experience.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -20,10 +21,86 @@
         <div class="kframe">
             <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
             <div class="kframeinner">
-            <!--背景画面を表示-->
-            <div class = "">
-                <!--アプリの内容を作成-->
-            </div>
+                <div class="settings-screen">
+                    <header class="settings-header">
+                        <h1>設定</h1>
+                    </header>
+            
+                    <main class="settings-content">
+                        <div class="settings-section">
+                            <div class="settings-item">
+                                <i class="material-icons">wifi</i>
+                                <div class="item-content">
+                                    <span>Wi-Fi</span>
+                                    <span class="item-value">On</span>
+                                </div>
+                                <i class="material-icons arrow">chevron_right</i>
+                            </div>
+                            <div class="settings-item">
+                                <i class="material-icons">bluetooth</i>
+                                <div class="item-content">
+                                    <span>Bluetooth</span>
+                                    <span class="item-value">On</span>
+                                </div>
+                                <i class="material-icons arrow">chevron_right</i>
+                            </div>
+                            <div class="settings-item">
+                                <i class="material-icons">signal_cellular_alt</i>
+                                <div class="item-content">
+                                    <span>モバイル通信</span>
+                                </div>
+                                <i class="material-icons arrow">chevron_right</i>
+                            </div>
+                        </div>
+            
+                        <div class="settings-section">
+                            <div class="settings-item">
+                                <i class="material-icons">notifications</i>
+                                <div class="item-content">
+                                    <span>通知</span>
+                                </div>
+                                <i class="material-icons arrow">chevron_right</i>
+                            </div>
+                            <div class="settings-item">
+                                <i class="material-icons">volume_up</i>
+                                <div class="item-content">
+                                    <span>サウンドと触覚</span>
+                                </div>
+                                <i class="material-icons arrow">chevron_right</i>
+                            </div>
+                            <div class="settings-item">
+                                <i class="material-icons">brightness_6</i>
+                                <div class="item-content">
+                                    <span>画面表示と明るさ</span>
+                                </div>
+                                <i class="material-icons arrow">chevron_right</i>
+                            </div>
+                        </div>
+            
+                        <div class="settings-section">
+                           <div class="settings-item">
+                            <i class="material-icons">airplanemode_active</i> 
+                            <div class="item-content">
+                                <span>機内モード</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                             <div class="settings-item">
+                                <i class="material-icons">vpn_key</i>
+                                <div class="item-content">
+                                    <span>VPN</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </main>
+                </div>
             </div>
         </div>    
     </div>

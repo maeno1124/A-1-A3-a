@@ -1,0 +1,83 @@
+/* --- CALENDAR STYLES --- */
+.calendar-container {
+    width: 85%; /* 90% から変更 */
+    max-width: 380px; /* 400px から変更 */
+    margin: 2em auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#month-year {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-btn {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #003d82;
+}
+
+.calendar-grid {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-grid th, .calendar-grid td {
+    text-align: center;
+    padding: 12px 0;
+    border: 1px solid #eee;
+}
+
+.calendar-grid th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Sunday styles */
+.calendar-grid th:first-child,
+.calendar-grid td:first-child {
+    color: #d9534f; /* Red */
+}
+
+/* Saturday styles */
+.calendar-grid th:last-child,
+.calendar-grid td:last-child {
+    color: #0275d8; /* Blue */
+}
+
+/* Styles for dates from the previous/next month */
+.calendar-grid td.other-month {
+    color: #ccc;
+    background-color: #fdfdfd;
+}
+
+/* Styles for the current day */
+.calendar-grid td.today {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+}
+

@@ -1,0 +1,197 @@
+/* --- settingStyle.css --- */
+/* このファイルは、Experience.css で定義された .kframeinner の内部に配置される
+   .settings-screen コンポーネントのスタイルを定義します。 */
+
+/* 設定画面のルートコンテナ */
+.settings-screen {
+    margin-top: 20px;
+    /* .kframeinner (親) のサイズいっぱいに広がる */
+    width: 100%;
+    height: 100%;
+    /* .kframeinner が overflow: hidden の場合、こちらでスクロールを担当 */
+    overflow-y: auto;
+    background-color: #f0f0f7; /* 設定画面特有の背景色 */
+    box-sizing: border-box;
+}
+
+/* スクロールバーのスタイル（任意） */
+.settings-screen::-webkit-scrollbar {
+    width: 5px;
+}
+.settings-screen::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* 設定画面ヘッダー */
+.settings-header {
+    background-color: #f7f7f7;
+    padding: 15px 20px;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+    /* スクロールしてもヘッダーを固定 */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.settings-header h1 {
+    margin: 0;
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
+}
+
+/* 設定項目のメインコンテンツエリア */
+.settings-content {
+    /* ヘッダーが sticky のため、最初のセクションが隠れないようにパディングを追加 */
+    /* ただし、セクションのマージンで調整するためここでは0に */
+    padding: 0;
+    /* セクションの左右に余白を持たせるため、content自体にパディングを追加 */
+    padding: 0 20px;
+}
+
+/* 設定項目のグループ */
+.settings-section {
+    background-color: #fff;
+    /* 上下のボーダーを削除し、角丸を追加 */
+    border-top: none;
+    border-bottom: none;
+    border-radius: 10px; /* これが「箱」の角丸 */
+    margin-bottom: 20px;
+    /* 角丸に合わせて中身がはみ出ないように */
+    overflow: hidden;
+}
+/* 最初のセクションはヘッダーのすぐ下に配置 */
+.settings-section:first-child {
+    margin-top: 20px;
+}
+
+/* 最後のセクションの下マージンを削除 */
+.settings-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 20px; /* スクロール領域の最後に余白 */
+}
+
+
+/* 設定項目（一行） */
+.settings-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    /* 「もう少し右にする」ため、左のパディングを少し増やします */
+    padding-left: 25px;
+    border-bottom: 1px solid #dcdcdc;
+    cursor: pointer;
+    background-color: #fff; /* .settings-section から移動 */
+}
+
+/* セクションの最後のアイテムの境界線を消す */
+.settings-section .settings-item:last-child {
+    border-bottom: none;
+}
+
+/* アイコン (Material Icons) */
+.settings-item .material-icons {
+    color: #8e8e93;
+    margin-right: 15px;
+}
+
+/* テキスト部分のコンテナ */
+.settings-item .item-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem; /* 15px-16px 程度 */
+}
+
+/* 「On」などの現在値 */
+.item-content .item-value {
+    color: #8e8e93;
+}
+
+/* 右矢印 */
+.settings-item .arrow {
+    color: #c7c7cc;
+}
+
+/* --- Toggle Switch --- */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 51px;
+    height: 31px;
+    flex-shrink: 0; /* コンテナが縮んでもスイッチのサイズを維持 */
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 27px;
+    width: 27px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4cd964; /* オン（緑） */
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* ------------------------------------ */
+/* --- スマホ対応 (768px以下) --- */
+/* ------------------------------------ */
+/* Experience.css のメディアクエリとブレークポイントを合わせます */
+@media screen and (max-width: 768px) {
+
+    /* スマホ表示の際は、左右のパディングを少し狭くする */
+    .settings-content {
+        padding: 0 15px;
+    }
+
+    .settings-header h1 {
+        font-size: 1.1rem; /* スマホでは少し大きくても良い */
+    }
+    
+    .settings-item {
+        padding: 14px 20px; /* タップしやすくするために少し高さを増やす */
+        /* スマホ表示でも同様に左パディングを調整します */
+        padding-left: 25px;
+    }
+
+    .settings-item .item-content {
+        font-size: 1rem; /* スマホではフォントサイズを標準に */
+    }
+
+    /* Experience.css で .kframeinner の border-radius が 0px になるため、
+      設定画面のヘッダーもそれに合わせます。
+    */
+    .settings-header {
+        border-radius: 0;
+    }
+}
+
+

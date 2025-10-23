@@ -1,0 +1,129 @@
+/* --- phoneStyle.css --- */
+/* .kframeinner 内に配置される電話アプリのスタイル */
+
+.phone-screen {
+    margin-top: -10px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #fff; /* 電話アプリは白背景 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 番号表示エリア */
+.phone-display {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    position: relative;
+    min-height: 100px;
+}
+
+.phone-number {
+    font-size: 2.5rem;
+    color: #000;
+    font-weight: 300;
+    word-break: break-all; /* 長い番号の折り返し */
+}
+
+.backspace-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    color: #8e8e93;
+    cursor: pointer;
+}
+
+/* キーパッド */
+.phone-keypad {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+
+.keypad-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.keypad-btn {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+.keypad-btn:hover {
+    background-color: #d6d6d6;
+}
+
+.keypad-btn span {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.keypad-btn small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* 発信ボタン */
+.call-row {
+    margin-top: 10px;
+}
+
+.keypad-btn.call-btn {
+    width: 70px;
+    height: 70px;
+    background-color: #4cd964; /* 緑色 */
+    color: white;
+}
+.keypad-btn.call-btn:hover {
+    background-color: #45c25a;
+}
+.keypad-btn.call-btn .material-icons {
+    font-size: 2.5rem;
+}
+
+
+/* フッタータブ */
+.phone-footer {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #dcdcdc;
+    padding: 5px 0 10px 0;
+    background-color: #f7f7f7;
+}
+
+.footer-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #8e8e93;
+    cursor: pointer;
+}
+
+.footer-tab .material-icons {
+    font-size: 1.8rem;
+    margin-bottom: 2px;
+}
+
+/* アクティブなタブ */
+.footer-tab.active {
+    color: #007aff; /* iOSの標準的な青色 */
+}

@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>岩手県警察 サイバー犯罪対策体験</title>
     <link rel="icon" href="/photos/cs.jpg" type="image/png">
+    <!-- スマホのガワのスタイル -->
     <link rel="stylesheet" href="/css/Experience.css">
-    <script src = "/routes/appRoutes.js"></script>
+    <!-- ▼ 電話アプリの中身のスタイル（追加） -->
+    <link rel="stylesheet" href="/css/phoneStyle.css"> 
+    <!-- ▼ アイコンフォント（追加） -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -20,10 +24,123 @@
         <div class="kframe">
             <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
             <div class="kframeinner">
-            <!--背景画面を表示-->
-            <div class = "">
-                <!--アプリの内容を作成-->
+            <!--▼▼▼ 電話アプリのUIを挿入 ▼▼▼-->
+            <div class="phone-screen">
+                <!-- 通話履歴/番号表示エリア -->
+                <div class="phone-display">
+                    <span class="phone-number" id="phoneNumber"></span>
+                    <i class="material-icons backspace-icon" id="backspace">backspace</i>
+                </div>
+            
+                <!-- キーパッド -->
+                <div class="phone-keypad">
+                    <div class="keypad-row">
+                        <button class="keypad-btn" data-key="1">
+                            <span>1</span>
+                        </button>
+                        <button class="keypad-btn" data-key="2">
+                            <span>2</span>
+                            <small>ABC</small>
+                        </button>
+                        <button class="keypad-btn" data-key="3">
+                            <span>3</span>
+                            <small>DEF</small>
+                        </button>
+                    </div>
+                    <div class="keypad-row">
+                        <button class="keypad-btn" data-key="4">
+                            <span>4</span>
+                            <small>GHI</small>
+                        </button>
+                        <button class="keypad-btn" data-key="5">
+                            <span>5</span>
+                            <small>JKL</small>
+                        </button>
+                        <button class="keypad-btn" data-key="6">
+                            <span>6</span>
+                            <small>MNO</small>
+                        </button>
+                    </div>
+                    <div class="keypad-row">
+                        <button class="keypad-btn" data-key="7">
+                            <span>7</span>
+                            <small>PQRS</small>
+                        </button>
+                        <button class="keypad-btn" data-key="8">
+                            <span>8</span>
+                            <small>TUV</small>
+                        </button>
+                        <button class="keypad-btn" data-key="9">
+                            <span>9</span>
+                            <small>WXYZ</small>
+                        </button>
+                    </div>
+                    <div class="keypad-row">
+                        <button class="keypad-btn" data-key="*">
+                            <span>*</span>
+                        </button>
+                        <button class="keypad-btn" data-key="0">
+                            <span>0</span>
+                            <small>+</small>
+                        </button>
+                        <button class="keypad-btn" data-key="#">
+                            <span>#</span>
+                        </button>
+                    </div>
+                    <div class="keypad-row call-row">
+                        <button class="keypad-btn call-btn" id="callButton">
+                            <i class="material-icons">call</i>
+                        </button>
+                    </div>
+                </div>
+            
+                <!-- フッタータブ -->
+                <footer class="phone-footer">
+                    <div class="footer-tab">
+                        <i class="material-icons">star</i>
+                        <span>よく使う項目</span>
+                    </div>
+                    <div class="footer-tab">
+                        <i class="material-icons">history</i>
+                        <span>履歴</span>
+                    </div>
+                    <div class="footer-tab">
+                        <i class="material-icons">people</i>
+                        <span>連絡先</span>
+                    </div>
+                    <div class="footer-tab active">
+                        <i class="material-icons">dialpad</i>
+                        <span>キーパッド</span>
+                    </div>
+                    <div class="footer-tab">
+                        <i class="material-icons">voicemail</i>
+                        <span>留守番電話</span>
+                    </div>
+                </footer>
             </div>
+            
+            <!-- キーパッド操作のための簡易スクリプト -->
+            <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const phoneNumberDisplay = document.getElementById('phoneNumber');
+                // HTMLエスケープされていた文字を修正
+                const keypadButtons = document.querySelectorAll('.keypad-btn[data-key]'); 
+                const backspaceBtn = document.getElementById('backspace');
+            
+                keypadButtons.forEach(button => {
+                    // HTMLエスケープされていた文字を修正
+                    button.addEventListener('click', () => { 
+                        phoneNumberDisplay.textContent += button.dataset.key;
+                    });
+                });
+            
+                // HTMLエスケープされていた文字を修正
+                backspaceBtn.addEventListener('click', () => { 
+                    phoneNumberDisplay.textContent = phoneNumberDisplay.textContent.slice(0, -1);
+                });
+            });
+            </script>
+            <!--▲▲▲ 電話アプリのUIここまで ▲▲▲-->
             </div>
         </div>    
     </div>

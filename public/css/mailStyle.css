@@ -1,0 +1,105 @@
+/* --- MAIL APP STYLES --- */
+
+.mail-app-container {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+}
+
+.mail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #f7f7f7;
+}
+
+.mail-header h1 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.mail-header .unread-count {
+    background-color: #007bff;
+    color: white;
+    font-size: 0.8em;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.mail-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.mail-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9e9e9;
+    cursor: pointer;
+    position: relative;
+}
+
+.mail-item:hover {
+    background-color: #f5f5f5;
+}
+
+.mail-item.unread {
+    background-color: #e9f5ff; /* Light blue for unread */
+    font-weight: bold;
+}
+
+/* Unread blue dot indicator */
+.mail-item.unread::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mail-item.unread .mail-sender,
+.mail-item.unread .mail-subject {
+    padding-left: 20px; /* Make space for the blue dot */
+}
+.mail-item .mail-sender,
+.mail-item .mail-subject {
+     padding-left: 20px;
+}
+
+
+.mail-sender {
+    font-size: 1em;
+    margin-bottom: 4px;
+}
+
+.mail-subject {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.mail-item.unread .mail-subject {
+    font-weight: bold;
+}
+
+.mail-preview {
+    font-size: 0.85em;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 20px;
+}

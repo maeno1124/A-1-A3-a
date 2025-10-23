@@ -1,0 +1,126 @@
+/* --- messageStyle.css --- */
+/* .kframeinner 内に配置されるメッセージアプリのスタイル */
+
+.message-screen {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #fff; /* メッセージアプリは白背景 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ヘッダー */
+.message-header {
+    padding: 15px 20px 10px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header-top-row h1 {
+    margin: 0;
+    font-size: 1.5rem; /* 「メッセージ」の文字サイズ */
+    font-weight: 700;
+}
+
+.header-top-row .material-icons {
+    font-size: 1.8rem;
+    color: #007aff; /* iOSのブルー */
+    cursor: pointer;
+}
+
+/* 検索バー */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: #e9e9eb;
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+.search-bar-container .material-icons {
+    color: #8e8e93;
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    background: none;
+    font-size: 0.95rem;
+    color: #000;
+}
+.search-input:focus {
+    outline: none;
+}
+.search-input::placeholder {
+    color: #8e8e93;
+}
+
+/* チャットリスト */
+.chat-list-container {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e8eaed;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chat-item:hover {
+    background-color: #f8f9fa;
+}
+
+.chat-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: #eee;
+}
+
+.chat-preview {
+    flex-grow: 1;
+    overflow: hidden; /* テキストがはみ出ないように */
+}
+
+.chat-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.chat-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.chat-time {
+    font-size: 0.8rem;
+    color: #8e8e93;
+    flex-shrink: 0;
+}
+
+.chat-message {
+    font-size: 0.9rem;
+    color: #8e8e93;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

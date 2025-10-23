@@ -19,8 +19,7 @@ app.set('view engine', 'ejs');
 // --- ルーティング設定 ---
 
 // ルート用ルーターをインポート
-const indexRoutes = require('./routes/indexRoutes.js'); 
-
+const indexRoutes = require('./routes/indexRoutes.js');
 // URLのパスに応じて、使用するルーターを振り分ける
 app.use('/cybersimulator', indexRoutes); // '/cybersimulator'で始まるリクエストは全てindexRoutesに送る
 
