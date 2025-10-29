@@ -1,0 +1,85 @@
+/* public/css/searchResults.css */
+
+/* コンテナ全体 */
+.search-results-container {
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1; /* 背景色 */
+    overflow-y: auto; /* 高さを超えたらスクロール */
+}
+
+/* 上部の検索バー */
+.search-bar-top {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.search-input-top {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.search-bar-top .search-icon,
+.search-bar-top .mic-icon {
+    color: #5f6368;
+    cursor: pointer;
+}
+
+/* 検索結果リスト */
+.results-list {
+    padding: 10px 15px;
+    flex-grow: 1;
+}
+
+/* 各結果アイテム */
+.result-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.result-title {
+    font-size: 18px;
+    color: #1a0dab; /* 検索結果らしい青色 */
+    text-decoration: none;
+    font-weight: 500;
+    display: block; /* リンクをブロック要素に */
+    margin-bottom: 3px;
+}
+.result-title:hover {
+    text-decoration: underline;
+}
+
+.result-url {
+    font-size: 14px;
+    color: #006621; /* 検索結果らしい緑色 */
+    display: block;
+    margin-bottom: 4px;
+}
+
+.result-snippet {
+    font-size: 14px;
+    color: #4d5156;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* 結果が見つからない場合 */
+.no-results {
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+}

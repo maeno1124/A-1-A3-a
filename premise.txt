@@ -5,7 +5,7 @@ cd "フォルダのパス"
 git init
 git add .
 git commit -m "コメント"
-git remote add origin https://github.com/your-username/your-repository.git
+git remote add main https://github.com/your-username/your-repository.git
 git push -u origin main
 
 # "index.html"というファイルだけを追加

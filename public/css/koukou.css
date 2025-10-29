@@ -1,0 +1,135 @@
+/* public/css/koukoku.css */
+
+.warning-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #111; /* 暗い背景 */
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    overflow-y: auto; /* コンテンツが多い場合にスクロール */
+}
+
+.warning-header {
+    background-color: #d90000; /* 警告の赤 */
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid #ff4d4d;
+}
+
+.warning-header .warning-icon {
+    font-size: 32px;
+    margin-right: 10px;
+    animation: pulse 1s infinite; /* アイコンを点滅させる */
+}
+
+.warning-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.warning-content {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* コンテンツを中央に寄せる */
+}
+
+.warning-message-large {
+    font-size: 20px;
+    color: #ffc4c4;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+.warning-message-large strong {
+    color: #ff0000;
+    font-size: 24px;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+    animation: pulse-red 0.8s infinite; /* 文字を点滅させる */
+}
+
+.warning-message-small {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.warning-message-small strong {
+    color: #ffff00; /* 警告の黄色 */
+    font-weight: bold;
+}
+
+/* 偽のスキャンバー */
+.scan-animation {
+    margin-bottom: 25px;
+}
+.scan-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.scan-bar::before {
+    content: '';
+    display: block;
+    width: 70%; /* スキャンの進捗 */
+    height: 100%;
+    background-color: #d90000;
+    animation: scan 2s ease-out; /* アニメーション */
+}
+.scan-status {
+    font-size: 14px;
+    color: #ffc4c4;
+    margin-top: 8px;
+    animation: pulse 1.5s infinite;
+}
+
+/* 除去ボタン */
+.fix-button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    background-color: #00b300; /* 解決を促す緑色 */
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+    animation: pulse-green 1s infinite;
+    margin-top: 10px;
+}
+
+/* 点滅アニメーション */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+@keyframes pulse-red {
+    0% { color: #ff0000; text-shadow: 0 0 8px rgba(255, 0, 0, 0.7); }
+    50% { color: #ff6666; text-shadow: 0 0 15px rgba(255, 0, 0, 1); }
+    100% { color: #ff0000; text-shadow: 0 0 8px rgba(255, 0, 0, 0.7); }
+}
+@keyframes pulse-green {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 255, 0, 0.6); }
+    50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(0, 255, 0, 1); }
+    100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 255, 0, 0.6); }
+}
+@keyframes scan {
+    from { width: 0%; }
+    to { width: 70%; }
+}

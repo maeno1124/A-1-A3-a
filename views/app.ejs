@@ -20,6 +20,12 @@
             <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
             <div class="kframeinner">
                 <img src="/photos/iwatephoto.jpg" alt="表示する画像" class="inner-image">
+                <div class="popup-overlay" id="welcome-popup">
+                    <div class="popup-content">
+                        <p>ようこそ！<br>サイバー犯罪対策体験へ</p>
+                        <p>まずは検索アプリを開いてみよう！</p>
+                    </div>
+                </div>
                 <div class="inner-app">
                     <!-- ボタンを<a>タグに変更し、正しいパスを指定 -->
                     <a class="app-icon icon-phone" href="./app/phone">
@@ -44,6 +50,24 @@
             </div>
         </div>
     </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+            // 1. ポップアップの要素を取得
+            const popup = document.getElementById('welcome-popup');
 
+            // 2. ポップアップ（popup）がクリックされた時に実行
+            popup.addEventListener('click', () => {
+                
+                // 3. CSSで定義した 'hide' クラスを追加 (フェードアウト開始)
+                popup.classList.add('hide');
+
+                // 4. アニメーションが終わる0.5秒後 (CSSの transition と合わせる) に
+                //    要素を完全に非表示にして、下のアイコンをクリックできるようにする
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500); // 500ミリ秒 = 0.5秒
+            });
+        });
+    </script>
 </body>
 </html>

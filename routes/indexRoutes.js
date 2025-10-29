@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 
-// '/experience' パスへのGETリクエスト (URLは /cybersimulator/experience となる)
+// '/experience' パスへのGETリクエスト (URLは /cybersimulator/appとなる)
 router.get('/app', (req, res) => {
   // views/experience.ejs を描画します
   res.render('app');

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>検索結果</title>
+    <link rel="icon" href="/photos/cs.jpg" type="image/png">
+    <link rel="stylesheet" href="/css/Experience.css">
+    <link rel="stylesheet" href="/css/searchResults.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class ="header-logo">
+            <img src="/photos/Wow.png" alt="注意喚起" class="header-logo">
+        </div>
+    </header>
+    <div class="kv">
+        <div class="kframe">
+            <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
+            <div class="kframeinner">
+                <div class="search-results-container">
+                    <div class="search-bar-top">
+                        <i class="material-icons search-icon" id="search-button-top">search</i>
+                        <input type="text" class="search-input-top" id="search-input-top" value="<%= query %>">
+                        <i class="material-icons mic-icon">mic</i>
+                    </div>
+
+                    <main class="results-list">
+                        
+                        <% results.forEach(result => { %>
+                            <div class="result-item">
+                                
+                                <% if (result.isRealLink) { %>
+                                    <a href="/cybersimulator/app/haitatu" class="result-title"><%= result.title %></a>
+                                <% } else { %>
+                                    <a href="javascript:void(0);" class="result-title"><%= result.title %></a>
+                                <% } %>
+
+                                <span class="result-url"><%= result.url %></span>
+                                <p class="result-snippet"><%= result.snippet %></p>
+                            </div>
+                        <% }); %>
+
+                        <% if (results.length === 0) { %>
+                            <p class="no-results">「<%= query %>」に一致する情報は見つかりませんでした。</p>
+                        <% } %>
+
+                    </main>
+                    </div>
+                </div>
+        </div>    
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('search-input-top');
+        const searchButton = document.getElementById('search-button-top');
+        const performSearch = () => {
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `/cybersimulator/app/searchResults?q=${encodeURIComponent(query)}`;
+            }
+        };
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

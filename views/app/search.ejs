@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>岩手県警察 サイバー犯罪対策体験</title>
     <link rel="icon" href="/photos/cs.jpg" type="image/png">
-    <!-- スマホのガワのスタイル -->
     <link rel="stylesheet" href="/css/Experience.css">
-    <!-- ▼ 検索アプリの中身のスタイル（追加） -->
     <link rel="stylesheet" href="/css/searchStyle.css"> 
-    <!-- ▼ アイコンフォント（追加） -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -24,22 +21,24 @@
         <div class="kframe">
             <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
             <div class="kframeinner">
-            <!--▼▼▼ 検索アプリのUIを挿入 ▼▼▼-->
             <div class="search-screen">
                 <header class="search-header">
-                    <!-- Googleロゴ -->
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="search-logo">
+                    <img src="/photos/searchnow.png" alt=" searchnow" class="search-logo">
                 </header>
+
+                <div class="popup-overlay" id="welcome-popup">
+                    <div class="popup-content">
+                        <p>配達.comというサイトを検索してみよう</p>
+                    </div>
+                </div>
                 
-                <!-- 検索バー -->
                 <div class="search-bar-container">
-                    <i class="material-icons search-icon">search</i>
-                    <input type="text" class="search-input" placeholder="検索または URL を入力">
-                    <i class="material-icons mic-icon">mic</i>
+                    <i class="material-icons search-icon" id="search-button">search</i>
+                    <input type="text" class="search-input" id="search-input" placeholder="検索または URL を入力">
+                    <i class="material-icons mic-icon" >mic</i>
                 </div>
             
-                <!-- Suggestions / Discover Feed -->
-                <main class="search-content">
+                <main class="search-content" id="search-content-area">
                     <div class="content-title">Discover</div>
                     
                     <div class="discover-item">
@@ -67,7 +66,6 @@
                     </div>
                 </main>
             
-                <!-- Footer Tabs -->
                 <footer class="search-footer">
                     <div class="footer-tab active">
                         <i class="material-icons">search</i>
@@ -87,10 +85,56 @@
                     </div>
                 </footer>
             </div>
-            <!--▲▲▲ 検索アプリのUIここまで ▲▲▲-->
             </div>
         </div>    
     </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
 
-</body>
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+
+    // 検索を実行する関数
+    const performSearch = () => {
+        const query = searchInput.value.trim();
+        const encodedQuery = encodeURIComponent(query); // 日本語や記号をURLで送れる形式に変換
+
+        if (query) {
+            // ★修正点:
+            // どんな単語が入力されても、常に /searchResults に
+            // クエリパラメータ(?q=...)を付けて移動します。
+            window.location.href = `/cybersimulator/app/searchResults?q=${encodedQuery}`;
+        } else {
+            // (任意) 何も入力されなかった場合の処理
+            console.log('検索語が入力されていません。');
+        }
+    };
+
+    // 検索ボタン(searchButton)がクリックされたら、performSearch関数を実行
+    searchButton.addEventListener('click', performSearch);
+
+    // Enterキーが押されたときも検索を実行
+    searchInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    });
+            // 1. ポップアップの要素を取得
+            const popup = document.getElementById('welcome-popup');
+
+            // 2. ポップアップ（popup）がクリックされた時に実行
+            popup.addEventListener('click', () => {
+                
+                // 3. CSSで定義した 'hide' クラスを追加 (フェードアウト開始)
+                popup.classList.add('hide');
+
+                // 4. アニメーションが終わる0.5秒後 (CSSの transition と合わせる) に
+                //    要素を完全に非表示にして、下のアイコンをクリックできるようにする
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500); // 500ミリ秒 = 0.5秒
+            });
+});
+</script>
+    </body>
 </html>

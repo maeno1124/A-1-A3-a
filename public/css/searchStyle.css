@@ -11,6 +11,7 @@
 }
 
 .search-header {
+    margin-top: 15px;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -18,8 +19,8 @@
 }
 
 .search-logo {
-    width: 92px;
-    height: 30px;
+    width: 200px;
+    height: auto;
 }
 
 /* 検索バー */
@@ -34,10 +35,25 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
+/* ▼▼▼ 変更箇所: ホバー・アクティブ効果を追加して、よりボタンらしくします ▼▼▼ */
 .search-bar-container .search-icon {
     color: #5f6368;
     margin-right: 10px;
+    cursor: pointer; 
+    transition: all 0.1s ease-in-out; /* スムーズな変化のためのアニメーション */
 }
+
+.search-bar-container .search-icon:hover {
+    color: #333; /* マウスが乗ったら色を濃くする */
+    transform: scale(1.1); /* 少し大きくする */
+}
+
+.search-bar-container .search-icon:active {
+    transform: scale(0.95); /* クリックしたら少し小さくする */
+    color: #000; /* クリック中はさらに濃くする */
+}
+/* ▲▲▲ 変更ここまで ▲▲▲ */
+
 
 .search-bar-container .mic-icon {
     color: #5f6368;

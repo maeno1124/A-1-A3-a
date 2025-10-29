@@ -77,6 +77,50 @@
 .icon-message  { left: 72%; top: 85%; width: 20%; }
 .icon-search   { left: 6%;  top: 70%; width: 20%; }
 .icon-setting  { left: 28%; top: 70%; width: 20%; }
+        /* ポップアップの背景（黒い半透明） */
+        .popup-overlay {
+            position: absolute; /* kframeinner基準で配置 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            /* アニメーション（消えるとき） */
+            transition: opacity 0.5s ease-out;
+        }
+
+        /* ポップアップの本体（白い箱） */
+        .popup-content {
+            background-color: #fff;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 80%; /* 幅が広くなりすぎないように */
+            transform: scale(1);
+            /* アニメーション（消えるとき） */
+            transition: transform 0.5s ease-out;
+        }
+        
+        .popup-content p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* JavaScriptでこのクラスを追加すると、CSSアニメーションが発動 */
+        .popup-overlay.hide {
+            opacity: 0;
+        }
+        .popup-overlay.hide .popup-content {
+            transform: scale(0.7);
+        }
 
 
 /* ------------------------------------ */
@@ -139,4 +183,83 @@
     .icon-calendar { left: 26%; top: 85%; width: 27%; } 
     .icon-mail     { left: 52%; top: 85%; width: 20%; }
     .icon-message  { left: 74%; top: 85%; width: 20%; }
+}
+
+/* ======== 検索結果ページのスタイル ======== */
+
+/* 検索結果のラッパー */
+.search-results-list {
+    padding: 10px 16px;
+    height: 100%; /* .search-content-areaの高さを埋める */
+    overflow-y: auto; /* 結果が多い場合にスクロール */
+    background: #fff; /* Discoverの背景と合わせる */
+}
+
+/* 検索結果の件数 */
+.results-stats {
+    font-size: 12px;
+    color: #70757a;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+/* 検索結果ひとつ分のスタイル */
+.result-item {
+    margin-bottom: 20px;
+}
+
+/* 検索結果のURL */
+.result-url {
+    font-size: 12px;
+    color: #202124;
+    display: block; /* URLを独立した行にする */
+    margin-bottom: 2px;
+}
+
+/* 検索結果のタイトル（リンク風） */
+.result-title {
+    font-size: 18px;
+    color: #1a0dab; /* 検索リンク特有の青色 */
+    font-weight: normal;
+    margin: 0;
+    /* text-decoration: underline; */ /* 下線は好みで */
+}
+
+.result-title:hover {
+    text-decoration: underline; /* ホバーで下線 */
+}
+
+/* 検索結果のスニペット（説明文） */
+.result-snippet {
+    font-size: 13px;
+    color: #545454;
+    line-height: 1.4;
+    margin: 4px 0 0 0;
+}
+
+/* 関連する検索 */
+.related-searches h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #202124;
+    margin-bottom: 10px;
+}
+.related-searches ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.related-searches li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #1a0dab;
+    border-top: 1px solid #eee;
+}
+
+/* 検索に一致しなかった場合のスタイル */
+.no-results {
+    padding: 40px 20px;
+    text-align: center;
+    color: #5f6368;
 }

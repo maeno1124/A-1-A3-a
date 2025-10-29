@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>岩手県警察 サイバー犯罪対策体験</title>
+    <link rel="icon" href="/photos/cs.jpg" type="image/png">
+    <link rel="stylesheet" href="/css/Experience.css">
+    <link rel="stylesheet" href="/css/haitatsu.css"> 
+</head>
+<body>
+
+    <header class="header">
+        <div class ="header-logo">
+            <img src="/photos/Wow.png" alt="注意喚起" class="header-logo">
+        </div>
+    </header>
+
+    <div class="kv">
+        <div class="kframe">
+            <img src="/photos/smartphone.PNG" alt="スマホ画面" class="kframe-img">
+            <div class="kframeinner">
+                <div class="popup-overlay" id="welcome-popup">
+                    <div class="popup-content">
+                        <p>情報を入力して再配達の依頼をしよう</p>
+                    </div>
+                </div>
+                <div class="delivery-container">
+                    <header class="delivery-header">
+                        <h1 class="delivery-logo">配達.com</h1>
+                    </header>
+            
+                    <a href="/cybersimulator/app/koukoku" class="fake-ad-banner">
+                        <img src="/photos/koukoku.png" alt="偽の広告バナー">
+                    </a>
+                    <main class="delivery-content">
+            
+                        <form id="phishing-form" class="delivery-form">
+                            <h3>お届け先情報の再入力</h3>
+                            
+                            <div class="form-group">
+                                <label for="name">氏名</label>
+                                <input type="text" id="name" name="name" placeholder="例：山田 太郎" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">住所</label>
+                                <input type="text" id="address" name="address" placeholder="例：岩手県盛岡市..." required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">電話番号</label>
+                                <input type="tel" id="phone" name="phone" placeholder="例：090-1234-5678" required>
+                            </div>
+            
+                            <div class="form-group-separator">
+                                <p>再配達手数料のお支払い（280円）</p>
+                            </div>
+            
+                            <button type="submit" class="submit-button">
+                                入力情報を更新して配達を確定する
+                            </button>
+                        </form>
+                    </main>
+                </div>
+                </div>
+        </div>    
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. ポップアップの要素を取得
+            const popup = document.getElementById('welcome-popup');
+
+            // 2. ポップアップ（popup）がクリックされた時に実行
+            popup.addEventListener('click', () => {
+                
+                // 3. CSSで定義した 'hide' クラスを追加 (フェードアウト開始)
+                popup.classList.add('hide');
+
+                // 4. アニメーションが終わる0.5秒後 (CSSの transition と合わせる) に
+                //    要素を完全に非表示にして、下のアイコンをクリックできるようにする
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500); // 500ミリ秒 = 0.5秒
+            });
+        });
+    </script>
+
+    </body>
+</html>
